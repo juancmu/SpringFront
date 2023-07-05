@@ -25,7 +25,7 @@ export const Create = () => {
 
   const onSubmit = async (e) => {
       e.preventDefault();
-      await axios.post("http://localhost:3000/store", store)
+      await axios.post("", store)
       navigate("/listall");
   }
 

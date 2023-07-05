@@ -19,7 +19,7 @@ export const ListAll = () => {
 
     const loadStores = async() =>{
 
-        const result = await axios.get("http://localhost:3000/store");
+        const result = await axios.get("");
         setStores(result.data);
 
     }
@@ -27,7 +27,7 @@ export const ListAll = () => {
 
     const deleteStore = async (id) => {
 
-        await axios.delete(`http://localhost:3000/store/${id}`);
+        await axios.delete(`/${id}`);
 
         loadStores();
 

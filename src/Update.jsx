@@ -37,13 +37,13 @@ export const Update = () => {
 
   const onSubmit = async (e) => {
       e.preventDefault();
-      await axios.put(`http://localhost:3000/store/${id}`, store)
+      await axios.put(`/${id}`, store)
       navigate("/listall");
   }
 
   const loadStore = async() =>{
 
-    const result = await axios.get(`http://localhost:3000/store/${id}`);
+    const result = await axios.get(`/${id}`);
     setStore(result.data);
 
 }

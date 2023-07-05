@@ -10,8 +10,12 @@ import Home from './Home';
 import {Create} from './Create';
 import {Read} from './Read';
 import {Update} from './Update';
-import {Delete} from './Delete';
+
 import { ListAll } from './ListAll';
+import axios from 'axios';
+
+
+axios.defaults.baseURL = 'http://localhost:3000/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -26,7 +30,7 @@ root.render(
 
         <Route path = "listall" element = {<ListAll />} />
         <Route path = "update/:id" element = {<Update />} />
-        <Route path = "delete/:id" element = {<Delete />} />
+        
         </Route>
       </Routes>
     </BrowserRouter>
