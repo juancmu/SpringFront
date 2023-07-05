@@ -11,7 +11,7 @@ const Home = () => {
 
 <>
 <h1>Actividad 2 - Desarrollo de Aplicaciones WEB - Juan Carlos Munoz</h1>
-      <div className='container'>
+      <div className='container-home'>
     <div>
 
     <Landing /> 

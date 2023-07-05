@@ -1,9 +1,8 @@
 
-
 .container-home {
 
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 0.7fr 4fr;
 
   
 
