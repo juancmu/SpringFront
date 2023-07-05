@@ -9,39 +9,29 @@ import './styles.css'
 
 
 
-
-const geoStoreBooks = [
-                {lat: 4.724769857324674, lon: -74.03644203616295, bookStore: "Books & Books Bogota"},
-                {lat: 4.718268861107518, lon: -74.029232258281015, bookStore: "Libreria Nacional"},
-                {lat: 4.681143587124686, lon: -74.04313682991045, bookStore: "Safari Book Store"},
-                {lat: 4.6902637303856665, lon: -74.06768390047162, bookStore: "Ediciones Gaviota"},
-                {lat: 4.6802637303856665, lon: -74.07768390047162, bookStore: "Libreria Condor"},
-                {lat: 4.7002637303856665, lon: -74.08768390047162, bookStore: "Ediciones Salvat"},
-                {lat: 4.7102637303856665, lon: -74.09768390047162, bookStore: "Circulo de Lectores"},
-                {lat: 4.7202637303856665, lon: -74.09568390047162, bookStore: "Libreria Palatino"},
-                {lat: 4.7302637303856665, lon: -74.09868390047162, bookStore: "Ediciones Tommas and Tommas"},
-                {lat: 4.7302637303856665, lon: -74.09868390047162, bookStore: "Ediciones Andino"},
-
-                
-]
-// console.log(geoStoreBooks);
-
-
 // const {geoLoc, increment, reset} = useCounter;
 
 
 
 
-export const Maps = () => {
+export const Maps = (props) => {
 
 
-// const [geoLoc, increment, reset] = useCustomHook;
+  
+const geoStoreBooks = [
+  {lat: 4.724769857324674, lon: -74.03644203616295, bookStore: "Books & Books Bogota"}, 
+  {lat: props.lat, lon: props.lon, bookStore: "Books & Books Bogota"}, 
+]
+
+console.log(geoStoreBooks);
+
+
 
 const [geoLoc, setGeoLoc] = useState(0)
 
 const increment =()=>{
 
-geoLoc<9 ? setGeoLoc(geoLoc+1) : setGeoLoc(0)
+geoLoc<1 ? setGeoLoc(geoLoc+1) : setGeoLoc(1)
 
 }
 
@@ -53,37 +43,60 @@ function ChangeView({ center, zoom }) {
   return null;
 }
 
+//console.log(lats)
+
+  
+
+
+//const result2 = store.find(item => item.id === 5);
+
+
+ //console.log(result2)
+
+// const [geoLoc, increment, reset] = useCustomHook;
+
+
+
+
+//const result2 = store.find(item => item.id === 5);
+
 
 const mapRef = useRef()
 
-const ZOOM_LEVEL  = 12;
+const ZOOM_LEVEL  = 8;
+
+
+
 
 
   return (
 <>
     <div className='findStore'> 
-    <div className='titleStore'>{geoStoreBooks[geoLoc].bookStore} </div>
-    <div className='btnStore'><button className='btn-danger' onClick={increment}>Buscar Otra Tienda</button></div>
+  
+    <div className='btnStore'><button className='btn-danger' onClick={increment}>Ubicar</button></div>
     </div> 
    <MapContainer className='maps'
    center= {{lat: geoStoreBooks[geoLoc].lat, lon: geoStoreBooks[geoLoc].lon }}
    zoom={ZOOM_LEVEL} 
    ref={mapRef}
    >
-    <ChangeView center={{lat: geoStoreBooks[geoLoc].lat, lon: geoStoreBooks[geoLoc].lon }} zoom={ZOOM_LEVEL} /> 
+   <ChangeView center={{lat: geoStoreBooks[geoLoc].lat, lon: geoStoreBooks[geoLoc].lon }} zoom={ZOOM_LEVEL} /> 
     <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   />
-  <Marker position={[geoStoreBooks[geoLoc].lat, geoStoreBooks[geoLoc].lon]}>
+  <Marker position={[props.lat, props.lon]}>
     <Popup>
-    <p>{geoStoreBooks[geoLoc].bookStore }</p>
+    <p>{props.nameStore }</p>
     </Popup>
   </Marker>
 
     </MapContainer>
   {/* <h1>{geoLoc}</h1> */}
    {/* <button onClick={reset}>Tienda Inicial</button> */}
+
+
+ 
    </>
 
   )

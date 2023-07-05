@@ -8,6 +8,7 @@ import './index.css';
 import './Landing.css';
 import Home from './Home';
 import {Create} from './Create';
+import {Read} from './Read';
 import {Update} from './Update';
 import {Delete} from './Delete';
 import { ListAll } from './ListAll';
@@ -19,8 +20,9 @@ root.render(
       <Routes>
         <Route path = "/" element = {<Home />}>
         <Route path = "maps/:id" element = {<Maps />} />
+    
         <Route path = "create" element = {<Create />} />
-        <Route path = "read" element = {<Read />} />
+        <Route path = "read/:id" element = {<Read />} />
 
         <Route path = "listall" element = {<ListAll />} />
         <Route path = "update/:id" element = {<Update />} />

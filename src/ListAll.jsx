@@ -60,10 +60,10 @@ export const ListAll = () => {
             <td>{store.lat}</td>
             <td>{store.lon}</td>
             <td> 
-                <Link className='btn btn-primary mx-2' to="/read">Ver</Link>
-                <Link className='btn btn-pouline-primary mx-2' to={`/update/${store.id}`}>Editar</Link>
+                <Link className='btn btn-primary mx-2' to={`/read/${store.id}`}>Ver</Link>
+                <Link className='btn btn-outline-primary mx-2' to={`/update/${store.id}`}>Editar</Link>
                 <button className='btn btn-danger mx-2' onClick={()=>deleteStore(store.id)}>Borrar</button>
-                <Link className='btn btn-pouline-primary mx-2' to={`/maps/${store.id}`}>mapa</Link>
+        
             </td>
           </tr>
 
